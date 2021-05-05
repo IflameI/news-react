@@ -1,0 +1,9 @@
+export { default as Header } from './Header';
+export { default as MainContent } from './MainContent/MainContent';
+export { default as BusinessPosts } from './Business/BusinessPosts';
+export { default as GeeksPosts } from './Geeks/GeeksPosts';
+export { default as Stories } from './MainContent/Stories';
+export { default as MainContentColumn } from './MainContent/MainContentColumn';
+export { default as MainContentBigColumn } from './MainContent/MainContentBigColumn';
+export { default as LoaderBlock } from './helpers/LoaderBlock';
+export { default as BusinessColumn } from './Business/BusinessColumn';
