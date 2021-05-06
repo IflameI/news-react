@@ -1,5 +1,12 @@
 import React from 'react';
-import { MainContentBigColumn, Stories, MainContentColumn } from '../../components';
+import {
+  MainContentBigColumn,
+  Stories,
+  MainContentColumn,
+  LoaderBlock,
+  BigLoaderBlock,
+} from '../../components';
+
 const MainContent = ({ items, isLoaded }) => {
   return (
     <>
@@ -13,14 +20,18 @@ const MainContent = ({ items, isLoaded }) => {
                   .map((obj, index) => (
                     <MainContentColumn key={`${obj.source.name}_${index}`} {...obj} />
                   ))
-              : 1231}
+              : Array(3)
+                  .fill(0)
+                  .map((_, index) => <LoaderBlock key={index} />)}
             {isLoaded
               ? items
                   .slice(4, 6)
                   .map((obj, index) => (
                     <MainContentBigColumn key={`${obj.source.name}_${index}`} {...obj} />
                   ))
-              : 1231}
+              : Array(2)
+                  .fill(0)
+                  .map((_, index) => <BigLoaderBlock key={index} />)}
           </div>
         </div>
       </section>

@@ -1,5 +1,10 @@
 import React from 'react';
-import { MainContentBigColumn, MainContentColumn } from '../../components';
+import {
+  LoaderBlock,
+  BigLoaderBlock,
+  MainContentBigColumn,
+  MainContentColumn,
+} from '../../components';
 
 const GeeksPosts = ({ items, isLoaded }) => {
   return (
@@ -14,14 +19,18 @@ const GeeksPosts = ({ items, isLoaded }) => {
                   .map((obj, index) => (
                     <MainContentBigColumn key={`${obj.source.name}_${index}`} {...obj} />
                   ))
-              : 1231}
+              : Array(2)
+                  .fill(0)
+                  .map((_, index) => <BigLoaderBlock key={index} />)}
             {isLoaded
               ? items
                   .slice(2, 5)
                   .map((obj, index) => (
                     <MainContentColumn key={`${obj.source.name}_${index}`} {...obj} />
                   ))
-              : 1231}
+              : Array(3)
+                  .fill(0)
+                  .map((_, index) => <LoaderBlock key={index} />)}
           </div>
         </div>
       </div>

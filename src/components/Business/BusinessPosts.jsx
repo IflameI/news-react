@@ -1,5 +1,5 @@
 import React from 'react';
-import { BusinessColumn } from '..';
+import { BusinessColumn, BusinessLoader } from '..';
 
 const BusinessPosts = ({ items, isLoaded }) => {
   return (
@@ -14,14 +14,18 @@ const BusinessPosts = ({ items, isLoaded }) => {
                   .map((obj, index) => (
                     <BusinessColumn key={`${obj.source.name}_${index}`} {...obj} />
                   ))
-              : 1231}
+              : Array(3)
+                  .fill(0)
+                  .map((_, index) => <BusinessLoader key={index} />)}
             {isLoaded
               ? items
                   .slice(4, 6)
                   .map((obj, index) => (
                     <BusinessColumn key={`${obj.source.name}_${index}`} {...obj} />
                   ))
-              : 1231}
+              : Array(3)
+                  .fill(0)
+                  .map((_, index) => <BusinessLoader key={index} />)}
           </div>
         </div>
       </div>

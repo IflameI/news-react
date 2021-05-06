@@ -1,8 +1,7 @@
 import React from 'react';
+import { Burger } from '.';
 
-const Header = ({ items, onClickCountry, activeCountry }) => {
-  const activeLabel = items.find((obj) => obj.type === activeCountry).name;
-
+const Header = ({ items, onClickCountry, open, activeCountry }) => {
   const onSelectCountry = (index) => {
     if (onClickCountry) {
       onClickCountry(index);
@@ -15,23 +14,14 @@ const Header = ({ items, onClickCountry, activeCountry }) => {
           <div className='header__logo'>
             REACT-<span>NEWS</span>
           </div>
-          <div className='menu__icon icon-menu'>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
           <nav className='header__menu menu'>
             <div className='menu__body'>
-              <ul className='menu__list'>
-                {items.map((obj, index) => (
-                  <li
-                    className={activeCountry === obj.type ? 'active' : ''}
-                    onClick={() => onSelectCountry(obj)}
-                    key={`${obj.type}_${index}`}>
-                    {obj.name}
-                  </li>
-                ))}
-              </ul>
+              <Burger
+                onSelectCountry={onSelectCountry}
+                items={items}
+                open={open}
+                activeCountry={activeCountry}
+              />
             </div>
           </nav>
         </div>

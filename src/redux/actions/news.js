@@ -21,6 +21,10 @@ export const setTechnologyNews = (items) => ({
 });
 
 export const fetchNews = (country) => async (dispatch) => {
+  dispatch({
+    type: 'SET_LOADED',
+    payload: false,
+  });
   const response = await axios.get(
     `https://newsapi.org/v2/top-headlines?country=${country}&category=technology&apiKey=e5c3da6204a14b828420939ff5ed03cb`,
   );
@@ -29,6 +33,10 @@ export const fetchNews = (country) => async (dispatch) => {
 };
 
 export const fetchBusinessNews = (country) => async (dispatch) => {
+  dispatch({
+    type: 'SET_LOADED',
+    payload: false,
+  });
   const response = await axios.get(
     `https://newsapi.org/v2/top-headlines?country=${country}&category=business&apiKey=e5c3da6204a14b828420939ff5ed03cb`,
   );
@@ -37,6 +45,10 @@ export const fetchBusinessNews = (country) => async (dispatch) => {
 };
 
 export const fetchTechnologyNews = (country) => async (dispatch) => {
+  dispatch({
+    type: 'SET_LOADED',
+    payload: false,
+  });
   const response = await axios.get(
     `https://newsapi.org/v2/top-headlines?country=${country}&category=science&apiKey=e5c3da6204a14b828420939ff5ed03cb`,
   );

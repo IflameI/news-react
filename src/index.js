@@ -8,6 +8,7 @@ import store from './redux/store';
 
 // Баг с картинкой
 // Menu burger
+//prop types
 ReactDOM.render(
   <Router>
     <Provider store={store}>
