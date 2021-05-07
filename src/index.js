@@ -5,11 +5,6 @@ import './scss/app.scss';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import store from './redux/store';
-
-// Баг с картинкой
-// Menu burger
-//prop types
-//Дата
 ReactDOM.render(
   <Router>
     <Provider store={store}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MainContentBigColumn = ({ title, description, source, publishedAt, urlToImage, url }) => {
+const MainContentBigColumn = ({ title, description, source, publishedAt, image, url }) => {
   return (
     <div className='main-content__big-wrapper'>
       <div className='main-content__column'>
@@ -10,7 +10,7 @@ const MainContentBigColumn = ({ title, description, source, publishedAt, urlToIm
             <div className='item-main-content__image'>
               <img
                 src={
-                  urlToImage ||
+                  image ||
                   'https://i.pinimg.com/600x315/ed/7b/4b/ed7b4ba9e8d9549c7354556e72eda013.jpg'
                 }
                 alt='news-image'></img>

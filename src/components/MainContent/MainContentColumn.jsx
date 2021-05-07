@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MainContentColumn = ({ title, source, publishedAt, urlToImage, url }) => {
+const MainContentColumn = ({ title, source, publishedAt, image, url }) => {
   return (
     <div className='main-content__column'>
       <div className='main-content__item item-main-content'>
@@ -9,7 +9,7 @@ const MainContentColumn = ({ title, source, publishedAt, urlToImage, url }) => {
           <div className='item-main-content__image'>
             <img
               src={
-                urlToImage ||
+                image ||
                 'https://i.pinimg.com/600x315/ed/7b/4b/ed7b4ba9e8d9549c7354556e72eda013.jpg'
               }></img>
           </div>
