@@ -5,6 +5,7 @@ import {
   MainContentBigColumn,
   MainContentColumn,
 } from '../../components';
+import PropTypes from 'prop-types';
 
 const GeeksPosts = ({ items, isLoaded }) => {
   return (
@@ -36,6 +37,10 @@ const GeeksPosts = ({ items, isLoaded }) => {
       </div>
     </section>
   );
+};
+GeeksPosts.propTypes = {
+  items: PropTypes.array.isRequired,
+  isLoaded: PropTypes.bool,
 };
 
 export default GeeksPosts;

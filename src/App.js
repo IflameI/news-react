@@ -26,7 +26,6 @@ function App() {
         items: news.items,
         itemsBusiness: news.itemsBusiness,
         itemsTechnology: news.itemsTechnology,
-
         isLoaded: news.isLoaded,
         country: filters.country,
       };

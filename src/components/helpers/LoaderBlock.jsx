@@ -9,7 +9,6 @@ const LoaderBlock = () => {
       speed={2}
       width={isMd2 ? 1000 : isMd1 ? 330 : 363}
       height={412}
-      viewBox={(0, 0, 1000, 1000)}
       backgroundColor='#f3f3f3'
       foregroundColor='#ecebeb'>
       <rect

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MainContentBigColumn = ({ title, description, source, publishedAt, urlToImage, url }) => {
   return (
@@ -20,7 +21,7 @@ const MainContentBigColumn = ({ title, description, source, publishedAt, urlToIm
               <p className='item-main-content__description'>{description}</p>
             </div>
             <div className='item-main-content__bottom'>
-              <div className='item-main-content__date'>{publishedAt}</div>
+              <div className='item-main-content__date'>{publishedAt.slice(0, 10)}</div>
             </div>
           </a>
         </div>
@@ -28,5 +29,11 @@ const MainContentBigColumn = ({ title, description, source, publishedAt, urlToIm
     </div>
   );
 };
-
+MainContentBigColumn.propTypes = {
+  title: PropTypes.string.isRequired,
+  source: PropTypes.obj,
+  publishedAt: PropTypes.number,
+  url: PropTypes.string,
+  description: PropTypes.string,
+};
 export default MainContentBigColumn;

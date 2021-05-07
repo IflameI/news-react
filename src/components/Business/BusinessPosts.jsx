@@ -1,5 +1,6 @@
 import React from 'react';
 import { BusinessColumn, BusinessLoader } from '..';
+import PropTypes from 'prop-types';
 
 const BusinessPosts = ({ items, isLoaded }) => {
   return (
@@ -31,6 +32,11 @@ const BusinessPosts = ({ items, isLoaded }) => {
       </div>
     </section>
   );
+};
+
+BusinessPosts.propTypes = {
+  items: PropTypes.array.isRequired,
+  isLoaded: PropTypes.bool,
 };
 
 export default BusinessPosts;

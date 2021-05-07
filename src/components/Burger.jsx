@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
+
 import { RightNav } from '.';
 
 const Burger = ({ onSelectCountry, items, activeCountry }) => {

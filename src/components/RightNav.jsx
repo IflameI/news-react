@@ -1,5 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 const RightNav = ({ onSelectCountry, items, open, activeCountry }) => {
   return (
     <ul
@@ -18,4 +20,14 @@ const RightNav = ({ onSelectCountry, items, open, activeCountry }) => {
   );
 };
 
+RightNav.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object),
+  onClickCountry: PropTypes.func,
+  activeCountry: PropTypes.string.isRequired,
+  open: PropTypes.bool,
+};
+
+RightNav.defaultProps = {
+  activeCountry: 'us',
+};
 export default RightNav;

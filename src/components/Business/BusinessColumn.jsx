@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const BusinessColumn = ({ title, source, description, publishedAt, urlToImage, url }) => {
   return (
@@ -19,7 +20,7 @@ const BusinessColumn = ({ title, source, description, publishedAt, urlToImage, u
               <p className='business__description'>{description}</p>
             </div>
             <div className='business__bottom'>
-              <div className='business__date'>{publishedAt}</div>
+              <div className='business__date'>{publishedAt.slice(0, 10)}</div>
             </div>
           </div>
         </a>
@@ -28,4 +29,11 @@ const BusinessColumn = ({ title, source, description, publishedAt, urlToImage, u
   );
 };
 
+BusinessColumn.propTypes = {
+  title: PropTypes.string.isRequired,
+  source: PropTypes.obj,
+  publishedAt: PropTypes.number,
+  url: PropTypes.string,
+  description: PropTypes.string,
+};
 export default BusinessColumn;

@@ -6,6 +6,7 @@ import {
   LoaderBlock,
   BigLoaderBlock,
 } from '../../components';
+import PropTypes from 'prop-types';
 
 const MainContent = ({ items, isLoaded }) => {
   return (
@@ -38,6 +39,11 @@ const MainContent = ({ items, isLoaded }) => {
       <Stories />
     </>
   );
+};
+
+MainContent.propTypes = {
+  items: PropTypes.array.isRequired,
+  isLoaded: PropTypes.bool,
 };
 
 export default MainContent;

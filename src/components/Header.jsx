@@ -1,7 +1,7 @@
 import React from 'react';
 import { Burger } from '.';
 
-const Header = ({ items, onClickCountry, open, activeCountry }) => {
+const Header = ({ items, onClickCountry, activeCountry }) => {
   const onSelectCountry = (index) => {
     if (onClickCountry) {
       onClickCountry(index);
@@ -19,7 +19,6 @@ const Header = ({ items, onClickCountry, open, activeCountry }) => {
               <Burger
                 onSelectCountry={onSelectCountry}
                 items={items}
-                open={open}
                 activeCountry={activeCountry}
               />
             </div>

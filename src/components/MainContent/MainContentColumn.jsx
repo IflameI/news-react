@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MainContentColumn = ({ title, source, publishedAt, urlToImage, url }) => {
   return (
@@ -17,12 +18,19 @@ const MainContentColumn = ({ title, source, publishedAt, urlToImage, url }) => {
             <div className='item-main-content__site'>{source.name}</div>
           </div>
           <div className='item-main-content__bottom'>
-            <div className='item-main-content__date'>{publishedAt}</div>
+            <div className='item-main-content__date'>{publishedAt.slice(0, 10)}</div>
           </div>
         </a>
       </div>
     </div>
   );
+};
+
+MainContentColumn.propTypes = {
+  title: PropTypes.string.isRequired,
+  source: PropTypes.obj,
+  publishedAt: PropTypes.number,
+  url: PropTypes.string,
 };
 
 export default MainContentColumn;
