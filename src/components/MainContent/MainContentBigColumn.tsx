@@ -1,7 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+type sourceType = {
+  name: string;
+  url: string;
+};
 
-const MainContentBigColumn = ({ title, description, source, publishedAt, image, url }) => {
+interface IMainContentBigColumn {
+  title: string;
+  description: string;
+  source: sourceType;
+  publishedAt: string;
+  image: string;
+  url: string;
+}
+
+const MainContentBigColumn: React.FC<IMainContentBigColumn> = ({
+  title,
+  description,
+  source,
+  publishedAt,
+  image,
+  url,
+}) => {
   return (
     <div className='main-content__big-wrapper'>
       <div className='main-content__column'>
@@ -29,11 +47,5 @@ const MainContentBigColumn = ({ title, description, source, publishedAt, image, 
     </div>
   );
 };
-MainContentBigColumn.propTypes = {
-  title: PropTypes.string.isRequired,
-  source: PropTypes.obj,
-  publishedAt: PropTypes.number,
-  url: PropTypes.string,
-  description: PropTypes.string,
-};
+
 export default MainContentBigColumn;

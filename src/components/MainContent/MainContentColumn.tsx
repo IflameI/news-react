@@ -1,7 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+interface IMainContentColumn {
+  title: string;
+  source?: any;
+  publishedAt: string;
+  image: string;
+  url: string;
+}
 
-const MainContentColumn = ({ title, source, publishedAt, image, url }) => {
+const MainContentColumn: React.FC<IMainContentColumn> = ({
+  title,
+  source,
+  publishedAt,
+  image,
+  url,
+}) => {
   return (
     <div className='main-content__column'>
       <div className='main-content__item item-main-content'>
@@ -24,13 +35,6 @@ const MainContentColumn = ({ title, source, publishedAt, image, url }) => {
       </div>
     </div>
   );
-};
-
-MainContentColumn.propTypes = {
-  title: PropTypes.string.isRequired,
-  source: PropTypes.obj,
-  publishedAt: PropTypes.number,
-  url: PropTypes.string,
 };
 
 export default MainContentColumn;

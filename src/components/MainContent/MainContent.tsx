@@ -1,14 +1,8 @@
-import React from 'react';
-import {
-  MainContentBigColumn,
-  Stories,
-  MainContentColumn,
-  LoaderBlock,
-  BigLoaderBlock,
-} from '../../components';
-import PropTypes from 'prop-types';
+import { MainContentBigColumn, Stories, MainContentColumn, LoaderBlock, BigLoaderBlock } from '..';
+import { useTypedSelector } from '../../redux/typeHooks/useTypedSelector';
 
-const MainContent = ({ items, isLoaded }) => {
+const MainContent = () => {
+  const { items, isLoaded } = useTypedSelector((state) => state.news);
   return (
     <>
       <section className='main-content'>
@@ -39,11 +33,6 @@ const MainContent = ({ items, isLoaded }) => {
       <Stories />
     </>
   );
-};
-
-MainContent.propTypes = {
-  items: PropTypes.array.isRequired,
-  isLoaded: PropTypes.bool,
 };
 
 export default MainContent;

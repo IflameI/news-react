@@ -1,8 +1,14 @@
-import React from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import { countryListType } from '../App';
 
-const RightNav = ({ onSelectCountry, items, open, activeCountry }) => {
+interface IRightNav {
+  onSelectCountry: (index: any) => void;
+  items: countryListType[];
+  activeCountry: string;
+  open: boolean;
+}
+
+const RightNav: React.FC<IRightNav> = ({ onSelectCountry, items, open, activeCountry }) => {
   return (
     <ul
       className={classNames('menu__list', {
@@ -20,14 +26,4 @@ const RightNav = ({ onSelectCountry, items, open, activeCountry }) => {
   );
 };
 
-RightNav.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.object),
-  onClickCountry: PropTypes.func,
-  activeCountry: PropTypes.string.isRequired,
-  open: PropTypes.bool,
-};
-
-RightNav.defaultProps = {
-  activeCountry: 'us',
-};
 export default RightNav;

@@ -1,13 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 
 import { RightNav } from '.';
+import { countryListType } from '../App';
 
-const Burger = ({ onSelectCountry, items, activeCountry }) => {
-  const [open, setOpen] = useState(false);
-  const burgerRef = useRef();
+interface IBurger {
+  onSelectCountry: (index: any) => void;
+  items: countryListType[];
+  activeCountry: string;
+}
 
-  const handleOutsideClick = (event) => {
+const Burger: React.FC<IBurger> = ({ onSelectCountry, items, activeCountry }) => {
+  const [open, setOpen] = useState<boolean>(false);
+  const burgerRef = useRef<HTMLHeadingElement>(null);
+
+  const handleOutsideClick = (event: any) => {
     const path = event.path || (event.composedPath && event.composedPath());
     if (!path.includes(burgerRef.current)) {
       setOpen(false);
@@ -34,7 +41,6 @@ const Burger = ({ onSelectCountry, items, activeCountry }) => {
         items={items}
         open={open}
         activeCountry={activeCountry}
-        burgerRef={burgerRef}
       />
     </>
   );

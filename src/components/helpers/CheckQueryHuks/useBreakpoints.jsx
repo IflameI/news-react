@@ -1,4 +1,4 @@
-import useMediaQuery from './useMediaQuery';
+import useMediaQuery from './useMediaQuery.jsx';
 
 export default function useBreakpoints() {
   const breakpoints = {

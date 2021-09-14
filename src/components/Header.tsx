@@ -1,8 +1,14 @@
-import React from 'react';
 import { Burger } from '.';
+import { countryListType } from '../App';
 
-const Header = ({ items, onClickCountry, activeCountry }) => {
-  const onSelectCountry = (index) => {
+interface IHeader {
+  items: countryListType[];
+  onClickCountry: (type: string) => void;
+  activeCountry: string;
+}
+
+const Header: React.FC<IHeader> = ({ items, onClickCountry, activeCountry }) => {
+  const onSelectCountry = (index: string) => {
     if (onClickCountry) {
       onClickCountry(index);
     }
