@@ -1,8 +1,8 @@
-import React from 'react';
 import { BusinessColumn, BusinessLoader } from '..';
-import PropTypes from 'prop-types';
+import { useTypedSelector } from '../../redux/typeHooks/useTypedSelector';
 
-const BusinessPosts = ({ items, isLoaded }) => {
+const BusinessPosts = () => {
+  const { isLoaded, itemsBusiness } = useTypedSelector((state) => state.news);
   return (
     <section className='business'>
       <div className='container'>
@@ -10,7 +10,7 @@ const BusinessPosts = ({ items, isLoaded }) => {
           <h3 className='business__name'>News about Business</h3>
           <div className='business__row'>
             {isLoaded
-              ? items
+              ? itemsBusiness
                   .slice(0, 3)
                   .map((obj, index) => (
                     <BusinessColumn key={`${obj.source.name}_${index}`} {...obj} />
@@ -19,7 +19,7 @@ const BusinessPosts = ({ items, isLoaded }) => {
                   .fill(0)
                   .map((_, index) => <BusinessLoader key={index} />)}
             {isLoaded
-              ? items
+              ? itemsBusiness
                   .slice(4, 6)
                   .map((obj, index) => (
                     <BusinessColumn key={`${obj.source.name}_${index}`} {...obj} />
@@ -32,11 +32,6 @@ const BusinessPosts = ({ items, isLoaded }) => {
       </div>
     </section>
   );
-};
-
-BusinessPosts.propTypes = {
-  items: PropTypes.array.isRequired,
-  isLoaded: PropTypes.bool,
 };
 
 export default BusinessPosts;

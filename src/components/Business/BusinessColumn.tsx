@@ -1,7 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+interface IBusinessColumn {
+  title: string;
+  description: string;
+  source?: any;
+  publishedAt: string;
+  image: string;
+  url: string;
+}
 
-const BusinessColumn = ({ title, source, description, publishedAt, image, url }) => {
+const BusinessColumn: React.FC<IBusinessColumn> = ({
+  title,
+  source,
+  description,
+  publishedAt,
+  image,
+  url,
+}) => {
   return (
     <div className='business__column'>
       <div className='business__item'>
@@ -29,11 +42,4 @@ const BusinessColumn = ({ title, source, description, publishedAt, image, url })
   );
 };
 
-BusinessColumn.propTypes = {
-  title: PropTypes.string.isRequired,
-  source: PropTypes.obj,
-  publishedAt: PropTypes.number,
-  url: PropTypes.string,
-  description: PropTypes.string,
-};
 export default BusinessColumn;

@@ -1,13 +1,9 @@
-import React from 'react';
-import {
-  LoaderBlock,
-  BigLoaderBlock,
-  MainContentBigColumn,
-  MainContentColumn,
-} from '../../components';
-import PropTypes from 'prop-types';
+import { LoaderBlock, BigLoaderBlock, MainContentBigColumn, MainContentColumn } from '..';
+import { useTypedSelector } from '../../redux/typeHooks/useTypedSelector';
 
-const GeeksPosts = ({ items, isLoaded }) => {
+const GeeksPosts = () => {
+  const { isLoaded, itemsTechnology } = useTypedSelector((state) => state.news);
+
   return (
     <section className='geeks'>
       <div className='container'>
@@ -15,7 +11,7 @@ const GeeksPosts = ({ items, isLoaded }) => {
         <div className='geeks__content'>
           <div className='geeks__row'>
             {isLoaded
-              ? items
+              ? itemsTechnology
                   .slice(0, 2)
                   .map((obj, index) => (
                     <MainContentBigColumn key={`${obj.source.name}_${index}`} {...obj} />
@@ -24,7 +20,7 @@ const GeeksPosts = ({ items, isLoaded }) => {
                   .fill(0)
                   .map((_, index) => <BigLoaderBlock key={index} />)}
             {isLoaded
-              ? items
+              ? itemsTechnology
                   .slice(2, 5)
                   .map((obj, index) => (
                     <MainContentColumn key={`${obj.source.name}_${index}`} {...obj} />
@@ -37,10 +33,6 @@ const GeeksPosts = ({ items, isLoaded }) => {
       </div>
     </section>
   );
-};
-GeeksPosts.propTypes = {
-  items: PropTypes.array.isRequired,
-  isLoaded: PropTypes.bool,
 };
 
 export default GeeksPosts;

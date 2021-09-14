@@ -19,7 +19,7 @@ const countryList: countryListType[] = [
 
 const App: React.FC = () => {
   const { setCountry, fetchNews, fetchBusinessNews, fetchTechnologyNews } = useActions();
-  const { isLoaded, itemsTechnology, itemsBusiness } = useTypedSelector((state) => state.news);
+  const { isLoaded } = useTypedSelector((state) => state.news);
   const { country } = useTypedSelector((state) => state.filters);
 
   const onSelectCountryType = useCallback((type) => {
@@ -39,8 +39,8 @@ const App: React.FC = () => {
         onClickCountry={onSelectCountryType}
       />
       <MainContent />
-      <BusinessPosts isLoaded={isLoaded} items={itemsBusiness} />
-      <GeeksPosts isLoaded={isLoaded} items={itemsTechnology} />
+      <BusinessPosts />
+      <GeeksPosts />
     </div>
   );
 };
