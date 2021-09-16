@@ -16,6 +16,9 @@
     font-size: 18px;
     justify-content: space-between;
     height: 70px;
+    a {
+      color: inherit;
+    }
   }
   &__logo {
     font-weight: 700;
@@ -23,20 +26,79 @@
       color: #3668ff;
     }
   }
+  &__list {
+    ul {
+      @include flexbox();
+      li {
+        font-weight: 700;
+        cursor: pointer;
+        color: #000;
+        @media (min-width: $md2+px) {
+          &:hover {
+            @include anim(0.3s, 0s);
+            color: #3668ff;
+          }
+        }
+      }
+      li:first-child {
+        margin-right: 15px;
+      }
+    }
+  }
+  &__li-active {
+    color: #3668ff !important;
+  }
 }
 .menu {
   &__list {
     @include flexbox();
+    flex-direction: column;
     & li {
       margin-right: 15px;
+      margin-bottom: 9px;
       cursor: pointer;
       color: #000;
-      @media (min-width: $md1+px) {
+      @media (min-width: $md2+px) {
         &:hover {
           @include anim(0.3s, 0s);
           color: #3668ff;
         }
       }
+    }
+  }
+  &__lang {
+    position: relative;
+    cursor: pointer;
+    font-weight: 700;
+    @media (max-width: 998.98px) {
+      display: none;
+    }
+    @media (min-width: $md2+px) {
+      &:hover {
+        @include anim(0.3s, 0s);
+        color: #3668ff;
+      }
+    }
+  }
+  &__popup {
+    display: none;
+    background: #fff;
+    padding: 10px;
+    position: absolute;
+    min-width: 140px;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    z-index: 3;
+    @media (max-width: 998.98px) {
+      background: transparent;
+      box-shadow: none;
+      width: 0;
+      padding: 0;
+      display: block;
+    }
+    &.active {
+      display: block;
     }
   }
 }

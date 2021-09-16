@@ -2,15 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 
 import { RightNav } from '.';
-import { countryListType } from '../App';
 
 interface IBurger {
   onSelectCountry: (index: any) => void;
-  items: countryListType[];
   activeCountry: string;
 }
 
-const Burger: React.FC<IBurger> = ({ onSelectCountry, items, activeCountry }) => {
+const Burger: React.FC<IBurger> = ({ onSelectCountry, activeCountry }) => {
   const [open, setOpen] = useState<boolean>(false);
   const burgerRef = useRef<HTMLHeadingElement>(null);
 
@@ -36,12 +34,7 @@ const Burger: React.FC<IBurger> = ({ onSelectCountry, items, activeCountry }) =>
         <div className='elementBurger'></div>
         <div className='elementBurger'></div>
       </div>
-      <RightNav
-        onSelectCountry={onSelectCountry}
-        items={items}
-        open={open}
-        activeCountry={activeCountry}
-      />
+      <RightNav onSelectCountry={onSelectCountry} open={open} activeCountry={activeCountry} />
     </>
   );
 };

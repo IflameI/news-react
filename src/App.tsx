@@ -1,25 +1,12 @@
 import { useEffect, useCallback } from 'react';
+import { Route, Switch } from 'react-router';
 
-import { Header, MainContent, BusinessPosts, GeeksPosts } from './components';
+import { Header, MainContent, BusinessPosts, GeeksPosts, MyList } from './components';
 import { useActions } from './redux/typeHooks/useActions';
 import { useTypedSelector } from './redux/typeHooks/useTypedSelector';
 
-export type countryListType = {
-  name: string;
-  type: string;
-};
-const countryList: countryListType[] = [
-  { name: 'English', type: 'us' },
-  { name: 'Russia', type: 'ru' },
-  { name: 'Italy', type: 'it' },
-  { name: 'Ukraine', type: 'ua' },
-  { name: 'France', type: 'fr' },
-  { name: 'Germany', type: 'de' },
-];
-
 const App: React.FC = () => {
   const { setCountry, fetchNews, fetchBusinessNews, fetchTechnologyNews } = useActions();
-  const { isLoaded } = useTypedSelector((state) => state.news);
   const { country } = useTypedSelector((state) => state.filters);
 
   const onSelectCountryType = useCallback((type) => {
@@ -27,20 +14,23 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    fetchNews(country.type);
-    fetchBusinessNews(country.type);
-    fetchTechnologyNews(country.type);
+    // fetchNews(country.type);
+    // fetchBusinessNews(country.type);
+    // fetchTechnologyNews(country.type);
   }, [country]);
   return (
     <div className='wrapper'>
-      <Header
-        activeCountry={country.type}
-        items={countryList}
-        onClickCountry={onSelectCountryType}
-      />
-      <MainContent />
-      <BusinessPosts />
-      <GeeksPosts />
+      <Header activeCountry={country.type} onClickCountry={onSelectCountryType} />
+      <Switch>
+        <Route exact path='/'>
+          <MainContent />
+          <BusinessPosts />
+          <GeeksPosts />
+        </Route>
+        <Route exact path='/MyList'>
+          <MyList />
+        </Route>
+      </Switch>
     </div>
   );
 };
