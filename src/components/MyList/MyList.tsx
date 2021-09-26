@@ -1,11 +1,4 @@
-let grabity = require('grabity');
-
 const MyList = () => {
-  (async () => {
-    let it = await grabity.grabIt('https://github.com/e-oj/grabity');
-
-    console.log(it);
-  })();
   return (
     <section className='myList'>
       <div className='container'>

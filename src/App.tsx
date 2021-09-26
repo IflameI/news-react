@@ -14,9 +14,9 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // fetchNews(country.type);
-    // fetchBusinessNews(country.type);
-    // fetchTechnologyNews(country.type);
+    fetchNews(country.type);
+    fetchBusinessNews(country.type);
+    fetchTechnologyNews(country.type);
   }, [country]);
   return (
     <div className='wrapper'>
